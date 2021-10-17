@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     public float gravityModifier;
     private bool _isOnGround = true;
     public bool gameOver = false;
+    private Animator _animator;
     void Start()
     {
         _rb = GetComponent<Rigidbody>();
@@ -16,6 +17,8 @@ public class PlayerController : MonoBehaviour
         {
             Debug.Log("RB is null");
         }
+
+        _animator = GetComponent<Animator>();
 
         Physics.gravity *= gravityModifier;
     }
@@ -27,7 +30,8 @@ public class PlayerController : MonoBehaviour
         {
             _rb.AddForce(Vector3.up * jumpForce , ForceMode.Impulse);
             _isOnGround = false;
-        }   
+            _animator.SetTrigger("Jump_trig");
+        }
     }
 
     private void OnCollisionEnter(Collision other)
@@ -40,6 +44,8 @@ public class PlayerController : MonoBehaviour
         {
             gameOver = true;
             Debug.Log("Game Over!!");
+            _animator.SetBool("Death_b", true);
+            _animator.SetInteger("DeathType_int", 1);
         }
     }
 }
