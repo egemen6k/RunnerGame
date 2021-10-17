@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     private bool _isOnGround = true;
     public bool gameOver = false;
     private Animator _animator;
+    public ParticleSystem explosionParticle;
     void Start()
     {
         _rb = GetComponent<Rigidbody>();
@@ -26,7 +27,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && _isOnGround)
+        if (Input.GetKeyDown(KeyCode.Space) && _isOnGround && !gameOver)
         {
             _rb.AddForce(Vector3.up * jumpForce , ForceMode.Impulse);
             _isOnGround = false;
@@ -46,6 +47,7 @@ public class PlayerController : MonoBehaviour
             Debug.Log("Game Over!!");
             _animator.SetBool("Death_b", true);
             _animator.SetInteger("DeathType_int", 1);
+            explosionParticle.Play();
         }
     }
 }
