@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 7078593157781680072}
   - component: {fileID: 359942439148102220}
   - component: {fileID: 3950353988396020760}
+  - component: {fileID: -1223523099592081080}
   m_Layer: 0
   m_Name: Obstacle
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -44,8 +45,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 2.3119323, z: 2.711775}
-  m_Center: {x: 0, y: 0.65596616, z: 0.07305372}
+  m_Size: {x: 0.92806053, y: 1.921927, z: 4.471328}
+  m_Center: {x: -0.0028791428, y: 0.9279218, z: 0.055868626}
 --- !u!114 &3950353988396020760
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -58,6 +59,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7202dbe6ff50baa498def4f3a5781195, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!54 &-1223523099592081080
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4063781527803172408}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &5335303671536582861
 GameObject:
   m_ObjectHideFlags: 0

@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     public float jumpForce;
     public float gravityModifier;
     private bool _isOnGround = true;
+    public bool gameOver = false;
     void Start()
     {
         _rb = GetComponent<Rigidbody>();
@@ -29,8 +30,16 @@ public class PlayerController : MonoBehaviour
         }   
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter(Collision other)
     {
-        _isOnGround = true;
+        if (other.gameObject.CompareTag("Ground"))
+        {
+            _isOnGround = true;
+        }
+        else if (other.gameObject.CompareTag("Obstacle"))
+        {
+            gameOver = true;
+            Debug.Log("Game Over!!");
+        }
     }
 }
